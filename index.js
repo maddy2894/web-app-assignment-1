@@ -39,25 +39,18 @@ window.onload = function() {
 function searchFunction() {
     var searchInput = document.getElementById("search");
     var searchLowerCase = searchInput.value.toLowerCase();
-    var tableRow = document.getElementsByTagName("tr");
-    console.log(tableRow.length); 
+    var data = document.getElementById("data");
+    var tableRow = data.getElementsByTagName("tr");
+    var tableData = "";
+    for (i = 0; i < tableRow.length; i++) {
+        tableData = tableRow[i].getElementsByTagName("td")[2];
+        if (tableData) {
+           var text = tableData.textContent;
+           if (text.toLowerCase().indexOf(searchLowerCase) > -1) {
+               tableRow[i].style.backgroundColor = "gold";
+           } else {
+            tableRow[i].style.backgroundColor = "#FAFCFF";
+           }
+        }
+    }
 }
-
-// function myFunction() {
-//     var input, filter, table, tr, td, i, txtValue;
-//     input = document.getElementById("myInput");
-//     filter = input.value.toUpperCase();
-//     table = document.getElementById("myTable");
-//     tr = table.getElementsByTagName("tr");
-//     for (i = 0; i < tr.length; i++) {
-//       td = tr[i].getElementsByTagName("td")[1];
-//       if (td) {
-//         txtValue = td.textContent || td.innerText;
-//         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//           tr[i].style.display = "";
-//         } else {
-//           tr[i].style.display = "none";
-//         }
-//       }       
-//     }
-//   }
