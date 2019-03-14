@@ -54,3 +54,22 @@ function searchFunction() {
         }
     }
 }
+
+function filterFunction() {
+    var filterInput = document.getElementById("filter");
+    var filterLowerCase = filterInput.value.toLowerCase();
+    var data = document.getElementById("data");
+    var tableRow = data.getElementsByTagName("tr");
+    var tableData = "";
+    for (i = 0; i < tableRow.length; i++) {
+        tableData = tableRow[i].getElementsByTagName("td")[7];
+        if (tableData) {
+           var text = tableData.textContent;
+           if (text.toLowerCase().indexOf(filterLowerCase) > -1 || filterLowerCase === "category") {
+               tableRow[i].style.display = "";
+           } else {
+            tableRow[i].style.display = "none";
+           }
+        }
+    }
+}

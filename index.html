@@ -13,6 +13,15 @@
       <div id="searchBox">
          <input type="text" id="search">
          <button type="button" onclick="searchFunction()">Search</button>
+         <select id="filter">
+            <option value="category" selected>Category</option>
+            <option value="art">Art</option>
+            <option value="science history">Science History</option>
+            <option value="action and adventure">Action and Adventure</option>
+            <option value="health">Health</option>
+            <option value="science fiction">Science Fiction</option>
+         </select> 
+         <button type="button" onclick="filterFunction()">Filter</button>
       </div>
       <div id="listBox">
          <table>
