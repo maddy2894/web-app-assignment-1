@@ -47,9 +47,12 @@ function searchFunction() {
         tableData = tableRow[i].getElementsByTagName("td")[2];
         if (tableData) {
            var text = tableData.textContent;
-           if (text.toLowerCase().indexOf(searchLowerCase) > -1) {
+           if (text.toLowerCase().indexOf(searchLowerCase) > -1 && searchLowerCase != "") {
                tableRow[i].style.backgroundColor = "gold";
-           } else {
+           } else if (searchLowerCase == "") {
+                tableRow[i].style.backgroundColor = "#FAFCFF";
+           }
+           else {
             tableRow[i].style.backgroundColor = "#FAFCFF";
            }
         }
@@ -85,4 +88,21 @@ function addToCart() {
         }
     }
     cartCounter.innerText = "(" + counter + ")";
+}
+
+function resetCart() {
+    var reset = confirm("Click Ok to reset the cart");
+    if (reset) {
+        counter = 0;
+        var checkBox = document.getElementsByClassName("checkBox");
+        var cartCounter = document.getElementById("counter");
+        cartCounter.innerText = "(" + counter + ")";
+        for (i in checkBox) {
+            if (checkBox[i].checked) {
+                checkBox[i].checked = false;
+            }
+        }
+    } else {
+        counter = counter;
+    }
 }
