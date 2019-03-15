@@ -56,3 +56,14 @@ caption {
 img {
    width: 68px;
 }
+
+img#shoppingCart {
+   width: 30px;
+   height: 30px;
+   vertical-align: middle;
+}
+
+div#cartButtons {
+   float: right;
+   margin-top: -3px;
+}

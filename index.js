@@ -14,6 +14,7 @@ function getJsonObject(path, success, error) {
 }
 
 bookList = []; // book list container
+var counter=0;
 window.onload = function() {
     getJsonObject('data.json',
         function(data) {
@@ -21,7 +22,7 @@ window.onload = function() {
             bookList = data; // store the book list into bookList
             var tr = "";
             for(i in bookList) {
-                tr += "<tr>" + "<td>" + "<input type=\"checkbox\" name=\"book" + i + "\">" + "</td>" + 
+                tr += "<tr>" + "<td>" + "<input type=\"checkbox\" class=\"checkBox\" name=\"book" + i + "\">" + "</td>" + 
                                 "<td>" + "<img src=\" " + bookList[i]['img'] + "\">" + "</td>" + 
                                 "<td>" + bookList[i]['title'] + "</td>" +
                                 "<td>" + bookList[i]['authors'] + "</td>" + 
@@ -72,4 +73,16 @@ function filterFunction() {
            }
         }
     }
+}
+
+function addToCart() {
+    counter=0;
+    var checkBox = document.getElementsByClassName("checkBox");
+    var cartCounter = document.getElementById("counter");
+    for (i in checkBox) {
+        if (checkBox[i].checked) {
+            counter += 1;
+        }
+    }
+    cartCounter.innerText = "(" + counter + ")";
 }
