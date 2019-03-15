@@ -18,8 +18,8 @@ var counter=0;
 window.onload = function() {
     getJsonObject('data.json',
         function(data) {
-            tbody = document.getElementById('data');
             bookList = data; // store the book list into bookList
+            var tbody = document.getElementById("rows");
             var tr = "";
             for(i in bookList) {
                 tr += "<tr>" + "<td>" + "<input type=\"checkbox\" class=\"checkBox\" name=\"book" + i + "\">" + "</td>" + 
@@ -40,8 +40,8 @@ window.onload = function() {
 function searchFunction() {
     var searchInput = document.getElementById("search");
     var searchLowerCase = searchInput.value.toLowerCase();
-    var data = document.getElementById("data");
-    var tableRow = data.getElementsByTagName("tr");
+    var tbody = document.getElementById("rows");
+    var tableRow = tbody.getElementsByTagName("tr");
     var tableData = "";
     for (i = 0; i < tableRow.length; i++) {
         tableData = tableRow[i].getElementsByTagName("td")[2];
@@ -62,8 +62,8 @@ function searchFunction() {
 function filterFunction() {
     var filterInput = document.getElementById("filter");
     var filterLowerCase = filterInput.value.toLowerCase();
-    var data = document.getElementById("data");
-    var tableRow = data.getElementsByTagName("tr");
+    var tbody = document.getElementById("rows");
+    var tableRow = tbody.getElementsByTagName("tr");
     var tableData = "";
     for (i = 0; i < tableRow.length; i++) {
         tableData = tableRow[i].getElementsByTagName("td")[7];
