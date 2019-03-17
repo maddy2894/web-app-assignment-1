@@ -43,6 +43,7 @@ function searchFunction() {
     var tbody = document.getElementById("rows");
     var tableRow = tbody.getElementsByTagName("tr");
     var tableData = "";
+    var titleNotFound = 0;
     for (i = 0; i < tableRow.length; i++) {
         tableData = tableRow[i].getElementsByTagName("td")[2];
         if (tableData) {
@@ -53,9 +54,13 @@ function searchFunction() {
                 tableRow[i].style.backgroundColor = "#FAFCFF";
            }
            else {
+            titleNotFound+=1;
             tableRow[i].style.backgroundColor = "#FAFCFF";
            }
         }
+    }
+    if (titleNotFound == 10) {
+        alert("Sorry, There is no book under this title.");
     }
 }
 
@@ -79,12 +84,12 @@ function filterFunction() {
 }
 
 function addToCart() {
-    counter=0;
     var checkBox = document.getElementsByClassName("checkBox");
     var cartCounter = document.getElementById("counter");
     for (i in checkBox) {
         if (checkBox[i].checked) {
             counter += 1;
+            checkBox[i].checked = false;
         }
     }
     cartCounter.innerText = "(" + counter + ")";
