@@ -51,7 +51,7 @@ function titleSearch() {
            var text = tableData.textContent;
            if (text.toUpperCase().indexOf(searchUpperCase) > -1 && searchUpperCase != "") {
                tableRow[i].style.backgroundColor = "gold";
-           } else if (searchUpperCase == "") {
+           } else if (searchUpperCase === "") {
                 tableRow[i].style.backgroundColor = "#FAFCFF";
            }
            else {
@@ -60,7 +60,7 @@ function titleSearch() {
            }
         }
     }
-    if (titleNotFound == 10) {
+    if (titleNotFound === 10) {
         alert("Sorry, There is no book under " + searchInput.value + " title.");
         searchInput.value = "";
     }
@@ -77,7 +77,7 @@ function categoryFilter() {
         tableData = tableRow[i].getElementsByTagName("td")[7];
         if (tableData) {
            var text = tableData.textContent;
-           if (text.toUpperCase().indexOf(filterUpperCase) > -1 || filterUpperCase === "category") {
+           if (text.toUpperCase().indexOf(filterUpperCase) > -1 || filterUpperCase === "CATEGORY") {
                tableRow[i].style.display = "";
            } else {
             categoryNotFound += 1
@@ -85,7 +85,7 @@ function categoryFilter() {
            }
         }
     }
-    if (categoryNotFound == 10) {
+    if (categoryNotFound === 10) {
         alert("Sorry, currently there are no books under \"" +  filterInput.value + "\" category.");
     }
 }
@@ -106,7 +106,7 @@ function addToCart() {
 function resetCart() {
     if (addedBooks.length > 1) {
         var reset = confirm("Click OK to remove " + addedBooks + " books from the cart");
-    } else if (addedBooks.length == 1) {
+    } else if (addedBooks.length === 1) {
         var reset = confirm("Click OK to remove " + addedBooks + " book from the cart");
     } else {
         alert("Cart is empty.")
