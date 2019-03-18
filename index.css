@@ -67,3 +67,7 @@ div#cartButtons {
    float: right;
    margin-top: -3px;
 }
+
+.titleStyle {
+   font-style: italic;
+}

@@ -12,7 +12,7 @@
    <form method="get" action="">
       <div id="searchBox">
          <input type="text" id="search">
-         <button type="button" onclick="searchFunction()">Search</button>
+         <button type="button" onclick="titleSearch()">Search</button>
          <select id="filter">
             <option value="category" selected>Category</option>
             <option value="art">Art</option>
@@ -22,7 +22,7 @@
             <option value="science fiction">Science Fiction</option>
             <option value="other">Other</option>
          </select> 
-         <button type="button" onclick="filterFunction()">Filter</button>
+         <button type="button" onclick="categoryFilter()">Filter</button>
          <div id="cartButtons">
             <button type="button" onclick="addToCart()">Add to cart</button>
             <button type="button" onclick="resetCart()">Reset the cart</button>
@@ -32,7 +32,7 @@
       </div>
       <div id="listBox">
          <table>
-            <caption></caption>
+            <caption>ABZBooks</caption>
             <thead>
                <th colspan="3">Title</th>
                <th>Authors</th>
