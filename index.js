@@ -61,6 +61,7 @@ function searchFunction() {
     }
     if (titleNotFound == 10) {
         alert("Sorry, There is no book under this title.");
+        searchInput.value = "";
     }
 }
 
